@@ -44,8 +44,8 @@ Varna galerija slik z obsežnim sledenjem zgodovine, zgrajena z Vue.js, Express.
 ### 1. Kloniraj repozitorij
 
 ```bash
-git clone https://github.com/your-username/image-gallery-app.git
-cd image-gallery-app
+git clone https://github.com/matejaz/NalagalnikSlik.git
+cd NalagalnikSlik
 ```
 
 ### 2. Konfiguriraj okolje
