@@ -1,0 +1,2 @@
+# Ta datoteka zagotavlja, da se uploads direktorij ohrani v Git repozitoriju
+# Dejanske naložene datoteke se ne commitajo zaradi .gitignore pravil

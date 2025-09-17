@@ -1,0 +1,10 @@
+{
+	"name": "Database Management Scripts",
+	"scripts": {
+		"db:clear": "npx ts-node scripts/clearDatabase.ts",
+		"db:reset": "npm run db:clear && npx prisma migrate reset --force",
+		"db:fresh": "npm run db:clear && npx prisma migrate dev && npx prisma generate",
+		"uploads:clear": "powershell \"Remove-Item -Path 'uploads/*' -Force -ErrorAction SilentlyContinue\"",
+		"reset:all": "npm run db:clear && npm run uploads:clear && echo 'Database and files cleared successfully!'"
+	}
+}

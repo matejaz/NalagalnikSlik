@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Production builds (except what we need for Docker)
+# dist/ - we need this for the build
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Git
+.git/
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Development files
+src/ # Will be included in build
+public/ # Will be included in build
+# *.config.ts - NEEDED for vite build
+# *.config.js - NEEDED for build
+# tsconfig*.json - NEEDED for build, so commented out
+
+# Testing
+tests/
+test/
+*.test.*
+*.spec.*

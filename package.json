@@ -1,0 +1,28 @@
+{
+	"name": "image-gallery-app",
+	"version": "1.0.0",
+	"description": "Secure Image Gallery with Comprehensive History Tracking",
+	"scripts": {
+		"dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+		"dev:server": "cd server && npm run dev",
+		"dev:client": "cd client && npm run dev",
+		"build": "cd client && npm run build && cd ../server && npm run build",
+		"install:all": "npm install && cd server && npm install && cd ../client && npm install",
+		"docker:up": "docker-compose up -d",
+		"docker:down": "docker-compose down",
+		"docker:build": "docker-compose build"
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.2"
+	},
+	"keywords": [
+		"image-gallery",
+		"vue",
+		"typescript",
+		"express",
+		"prisma",
+		"docker"
+	],
+	"author": "",
+	"license": "MIT"
+}

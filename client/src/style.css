@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+
+/* Reset and base styles for PrimeVue */
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 14px;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+		"Segoe UI Symbol";
+	font-weight: normal;
+	background: var(--surface-ground);
+	color: var(--text-color);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+	min-height: 100vh;
+}
+
+/* Ensure links work well with PrimeVue */
+a {
+	text-decoration: none;
+	color: var(--primary-color);
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Remove any conflicting button styles */
+button {
+	font-family: inherit;
+}

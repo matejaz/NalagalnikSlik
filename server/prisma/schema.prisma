@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String         @id @default(uuid())
+  email        String         @unique
+  passwordHash String
+  createdAt    DateTime       @default(now())
+  groupsOwned  Group[]        @relation("GroupOwner")
+  groupMembers GroupMember[]
+  images       Image[]
+  imageHistory ImageHistory[]
+  shares       ImageShare[]
+  likes        Like[]
+}
+
+model Image {
+  id               String            @id @default(uuid())
+  ownerId          String
+  title            String
+  mimeType         String
+  size             Int
+  path             String
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  isPublic         Boolean           @default(false)
+  encrypted        Boolean           @default(false)
+  originalSize     Int?
+  processedSize    Int?
+  processingStatus String            @default("pending")
+  processingTime   Int?
+  thumbnailExists  Boolean           @default(false)
+  owner            User              @relation(fields: [ownerId], references: [id])
+  history          ImageHistory[]
+  shares           ImageShare[]
+  shareTokens      ImageShareToken[]
+  likes            Like[]
+}
+
+model ImageShare {
+  id      String @id @default(uuid())
+  imageId String
+  userId  String
+  image   Image  @relation(fields: [imageId], references: [id])
+  user    User   @relation(fields: [userId], references: [id])
+
+  @@unique([imageId, userId])
+}
+
+model ImageShareToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  imageId   String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  image     Image    @relation(fields: [imageId], references: [id])
+}
+
+model Group {
+  id          String        @id @default(uuid())
+  name        String
+  description String?
+  ownerId     String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  owner       User          @relation("GroupOwner", fields: [ownerId], references: [id])
+  members     GroupMember[]
+}
+
+model GroupMember {
+  id       String   @id @default(uuid())
+  groupId  String
+  userId   String
+  role     String   @default("member")
+  joinedAt DateTime @default(now())
+  group    Group    @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id])
+
+  @@unique([groupId, userId])
+}
+
+model Like {
+  id        String   @id @default(uuid())
+  imageId   String
+  userId    String
+  createdAt DateTime @default(now())
+  image     Image    @relation(fields: [imageId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([imageId, userId])
+}
+
+model ImageHistory {
+  id          String   @id @default(uuid())
+  imageId     String
+  userId      String?  // Nullable for system actions
+  action      String   // "upload", "view", "download", "share", "rename", "delete", "privacy_change", "processing_complete", etc.
+  timestamp   DateTime @default(now())
+  metadata    Json?    // Store additional data like old/new values, IP address, etc.
+  description String?  // Human readable description of the action
+  image       Image    @relation(fields: [imageId], references: [id], onDelete: Cascade)
+  user        User?    @relation(fields: [userId], references: [id])
+}

@@ -1,0 +1,81 @@
+# Dependency directories
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Production builds
+dist/
+build/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Database
+*.sqlite
+*.db
+
+# Uploads (actual uploaded files - keep structure but not content)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Docker volumes
+postgres_data/
+uploads_data/
+
+# Generated Prisma client
+server/generated/
+
+# Temporary files
+tmp/
+temp/
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux specific
+*~
