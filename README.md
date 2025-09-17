@@ -1,11 +1,9 @@
-# 🖼️ Secure Image Gallery
+# 🖼️ Album
 
-Varna galerija slik z obsežnim sledenjem zgodovine, zgrajena z Vue.js, Express.js in PostgreSQL.
+Galerija slik s sledenjem zgodovine, zgrajena z Vue.js, Express.js in PostgreSQL.
 
 ## ✨ Funkcionalnosti
 
--   🔐 **Varna hramba slik** - AES-256-GCM šifriranje
--   📊 **Sledenje zgodovine** - Popoln audit trail vseh dejanj
 -   🔗 **Deljenje slik** - Varne povezave z omejitvijo časa
 -   🖼️ **Avtomatske sličice** - Obdelava slik v ozadju
 -   👤 **Avtentifikacija** - JWT žetoni z varnimi piškotki
@@ -25,7 +23,6 @@ Varna galerija slik z obsežnim sledenjem zgodovine, zgrajena z Vue.js, Express.
 
 -   **Express.js** + TypeScript
 -   **Prisma ORM** + PostgreSQL
--   **Sharp** - Obdelava slik
 -   **JWT** - Avtentifikacija
 -   **Multer** - Upload datotek
 
